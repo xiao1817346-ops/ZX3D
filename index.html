@@ -194,5 +194,5 @@ function flyTo(gid,i){
 }
 window.flyTo=flyTo;window.filt=filt;window.showDetail=showDetail;window.closeDetail=closeDetail;window.showSecDetail=showSecDetail;
 window.addEventListener('resize',function(){W=v3d.clientWidth;H=v3d.clientHeight;c.aspect=W/H;c.updateProjectionMatrix();r.setSize(W,H);});
-function animate(){requestAnimationFrame(animate);c.position.setFromSpherical(sph);c.position.add(tgt);c.lookAt(tgt);r.render(s,c)}animate();setTimeout(function(){W=v3d.clientWidth;H=v3d.clientHeight;c.aspect=W/H;c.updateProjectionMatrix();r.setSize(W,H)},200);
+function animate(){requestAnimationFrame(animate);c.position.setFromSpherical(sph);c.position.add(tgt);c.lookAt(tgt);r.render(s,c)}animate();setTimeout(function(){W=v3d.clientWidth;H=v3d.clientHeight;c.aspect=W/H;c.updateProjectionMatrix();r.setSize(W,H);if(W<769){sph.radius=50;sph.phi=0.9;tgt.set(0,2,0)}},200);
 </script></body></html>
