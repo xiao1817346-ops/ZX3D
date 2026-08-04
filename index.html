@@ -137,7 +137,7 @@ function mkCont(x,z,w,h,d,col,gid,items){
   }
   Object.keys(catCells).forEach(function(cat){
     var cells=catCells[cat],n2=cells.length,geo2=new THREE.BoxGeometry(cellW*0.96,cellH*0.96,cellD*0.96);
-    var im=new THREE.InstancedMesh(geo2,new THREE.MeshStandardMaterial({color:new THREE.Color(CH(cat)),roughness:0.4,map:getCatTex(cat)}),n2);
+    var im=new THREE.InstancedMesh(geo2,new THREE.MeshBasicMaterial({color:new THREE.Color(CH(cat))}),n2);
     im.castShadow=true;im.renderOrder=1;
     cells.forEach(function(cl,i){
       dm2.position.set((cl.x+0.5-nx/2)*cellW,-h/2+(cl.ly+0.5)*cellH,(cl.z+0.5-nz/2)*cellD);
