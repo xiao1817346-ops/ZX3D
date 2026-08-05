@@ -185,7 +185,7 @@ function flyTo(gid,i){
     cellHL=new THREE.LineSegments(_hlEdge,new THREE.LineBasicMaterial({color:0xffdd00}));
     cellHL.position.set(cl.cx+(cl.x+0.5-cl.nx/2)*cl.cw,cl.cy-cl.hh/2+(cl.ly+0.5)*cl.ch,cl.cz+(cl.z+0.5-cl.nz/2)*cl.cd);
     cellHL.scale.set(cl.cw*0.97,cl.ch*0.97,cl.cd*0.97);
-    s.add(cellHL);cellHL.getWorldPosition(tgt);scrollToSection(gid);
+    s.add(cellHL);cellHL.getWorldPosition(tgt);scrollToSection(gid);glow3D(m)
   }else{
     if(gid==='t'||gid.indexOf('b')===0){scrollToSection(gid);glow3D(m)}
     else{var gr=m;while(gr&&!(gr instanceof THREE.Group))gr=gr.parent;glow3D(gr||m)}
