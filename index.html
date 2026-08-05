@@ -68,8 +68,8 @@ var contTex1=mkContTex('#8B1A1A'),contTex2=mkContTex('#1A3A6B'),contTex3=mkContT
 function B(w,h,d,m){var o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.castShadow=true;o.receiveShadow=true;return o}
 function C(r2,h,m){var o=new THREE.Mesh(new THREE.CylinderGeometry(r2,r2,h,8),m);o.castShadow=true;return o}
 function mkPost(sz,h){return B(sz,h,sz,steelIBeam)}
-var clicks=[],mm={},itemLookup={},cellLookup={},cellHL=null,_hlGeo=null,_hlEdge=null,hlBox=null,raycaster=new THREE.Raycaster(),mouse=new THREE.Vector2();
-function glow3D(gr){if(hlBox&&hlBox.parent)hlBox.parent.remove(hlBox);hlBox=null;if(!gr)return;var ud=gr.userData||{},w=ud.w||4,h=ud.h||3,d=ud.d||3;hlBox=new THREE.Mesh(new THREE.BoxGeometry(w+0.3,h+0.3,d+0.3),new THREE.MeshBasicMaterial({color:0xffdd00,transparent:true,opacity:0.35,depthTest:false}));gr.add(hlBox)}
+var clicks=[],mm={},itemLookup={},cellLookup={},cellHL=null,_hlGeo=null,_hlEdge=null,hlBox=null,contEdgeHL=null,raycaster=new THREE.Raycaster(),mouse=new THREE.Vector2();
+function glow3D(gr){if(hlBox&&hlBox.parent)hlBox.parent.remove(hlBox);hlBox=null;if(contEdgeHL){s.remove(contEdgeHL);contEdgeHL=null}if(!gr)return;var ud=gr.userData||{},w=ud.w||4,h=ud.h||3,d=ud.d||3;hlBox=new THREE.Mesh(new THREE.BoxGeometry(w+0.3,h+0.3,d+0.3),new THREE.MeshBasicMaterial({color:0xffdd00,transparent:true,opacity:0.35,depthTest:false}));gr.add(hlBox);contEdgeHL=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(w,h,d)),new THREE.LineBasicMaterial({color:0xffdd00,linewidth:2}));gr.add(contEdgeHL)}
 // mkBracket
 function mkBracket(x,z,w,h,d,col,type,gid,idx){
   var gr=new THREE.Group();gr.position.set(x,-1.5+h/2,z);gr.userData={w:w,h:h,d:d};
