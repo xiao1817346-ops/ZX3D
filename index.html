@@ -75,7 +75,7 @@ function mkBracket(x,z,w,h,d,col,type,gid,idx){
   var gr=new THREE.Group();gr.position.set(x,-1.5+h/2,z);gr.userData={w:w,h:h,d:d};
   var csGeo=new THREE.PlaneGeometry(w*0.9,d*0.9);var csMat=new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:0.3,depthWrite:false});var cs=new THREE.Mesh(csGeo,csMat);cs.rotation.x=-Math.PI/2;cs.position.y=-h/2-0.01;cs.receiveShadow=true;gr.add(cs);
   [[-w/2,0,-d/2],[w/2,0,-d/2],[-w/2,0,d/2],[w/2,0,d/2]].forEach(function(p){var post=mkPost(0.08,h);post.position.set(p[0],0,p[2]);gr.add(post)});
-  for(var sz=-1;sz<=1;sz+=2){var bt=B(w,0.06,0.06,steelTube);bt.position.set(0,-h/2+0.03,sz*d/2);gr.add(bt);var tp=B(w,0.06,0.06,steelTube);tp.position.set(0,h/2-0.03,sz*d/2);gr.add(tp)}
+  for(var sz=-1;sz<=1;sz+=2){var bt=B(w,0.06,0.06,steelTube);bt.position.set(0,-h/2+0.03,sz*(d/2-0.03));gr.add(bt);var tp=B(w,0.06,0.06,steelTube);tp.position.set(0,h/2-0.03,sz*(d/2-0.03));gr.add(tp)}
   for(var sx=-1;sx<=1;sx+=2){var be=B(0.06,0.06,d,steelTube);be.position.set(sx*(w/2-0.03),-h/2+0.03,0);gr.add(be);var te=B(0.06,0.06,d,steelTube);te.position.set(sx*(w/2-0.03),h/2-0.03,0);gr.add(te)}
   for(var j=0;j<Math.ceil(w/0.3);j++){var cb=B(0.04,0.05,d-0.16,steelTube);cb.position.set(-w/2+0.1+j*0.32,-h/2+0.07,0);gr.add(cb)}
   for(var j=0;j<Math.ceil((w-0.12)/0.13);j++){var fl=B(0.1,0.015,d-0.16,woodPlank);fl.position.set(-w/2+0.06+j*0.13,-h/2+0.1,0);gr.add(fl)}
