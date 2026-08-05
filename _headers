@@ -1,0 +1,4 @@
+/*.html
+  Cache-Control: max-age=60
+/*.js
+  Cache-Control: max-age=60
